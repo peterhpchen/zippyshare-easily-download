@@ -1,0 +1,12 @@
+.overlay {
+    position : absolute;
+    z-index : 10000;
+}
+.icon {
+    height : 16px;
+    width : auto;
+}
+
+.downloadButton {
+    right : -8px;
+}

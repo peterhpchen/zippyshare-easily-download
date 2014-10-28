@@ -1,0 +1,21 @@
+{
+    "manifest_version" : 2,
+    "name" : "zippyshare easily download",
+    "version" : "1.0",
+
+    "description" : "More easily download file",
+
+    "author" : "HP Chen",
+    "content_scripts" : [
+        {
+            "matches" : ["*://*/*"],
+            "css" : ["extension.css"],
+            "js" : ["lib/jquery-2.1.1.min.js", "extension.js"]
+        }
+    ],
+
+    "web_accessible_resources" : [
+        "image/*",
+        "lib/*"
+    ]
+}
