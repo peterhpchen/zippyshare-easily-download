@@ -15,17 +15,14 @@ $(document).ready(function() {
 
     getDownloadLink = function(data) {
         var $parse = $("<div>").append($(data));
-        var linkScript = $parse.find("#downloadB").next()[0].innerText.replace(/"/g, "");
-        var numOperator = getDetailFromScript(linkScript, "a");
-        var numArray = numOperator.split("%");
-        var num = parseInt(numArray[0]) % parseInt(numArray[1]);
-        var linkOperator = getDetailFromScript(linkScript, "document.getElementById('downloadB').href");
-        var linkArray = linkOperator.split("+");
-        linkArray[1] = num;
-        var link = "";
-        for(var key in linkArray) {
-            link = link + linkArray[key];
-        }
+        var stuff = $parse.find("#downloadB").parent();
+        var $ajaxGetData = $("<div>", {
+            id : "ajaxGetData",
+            display : "none"
+        }).append(stuff);
+        $("body").append($ajaxGetData);
+        var link = $("#downloadB").attr("href");
+        $ajaxGetData.remove();
         
         return link;
 
